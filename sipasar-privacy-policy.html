@@ -59,8 +59,22 @@
               <li><strong>Collection:</strong> through OS location services when you grant permission.</li>
               <li><strong>Processing & Storage:</strong> used on device and in live requests to routing/map providers; we do not persist your real-time location on our servers.</li>
               <li><strong>Sharing:</strong> not sold; may be transmitted to processors strictly to deliver features (e.g., map tiles or routing APIs).</li>
-              <li><strong>Control:</strong> you can allow, limit to “approximate”, or revoke location in device Settings. Simulation mode works without location.</li>
+              <li><strong>Control:</strong> you can allow, limit to "approximate", or revoke location in device Settings. Simulation mode works without location.</li>
             </ul>
+            <div style="margin-top: 1.5rem;">
+              <strong>Video Explanation:</strong>
+              <p style="margin: 0.5rem 0;">Watch our detailed explanation about location access in JelajahDW:</p>
+              <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 1rem;">
+                <iframe
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                  src="https://www.youtube.com/embed/unLlpQlfH-M"
+                  title="Video Penjelasan Akses Lokasi App JelajahDW"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
           </article>
 
           <article class="card">
@@ -142,76 +156,5 @@
       <p class="footer-note">Questions about privacy or data handling? Contact us and we'll get back within three working days.</p>
     </main>
   </div>
-
-  <!-- Image Modal -->
-  <div id="imageModal" class="modal">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <span class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</span>
-    <img class="modal-content" id="modalImage" alt="Preview">
-    <span class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</span>
-  </div>
-
-  <script>
-    let currentImageIndex = 0;
-    const images = document.querySelectorAll('.ui-preview-grid img');
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-
-    // Add click event to all preview images
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        currentImageIndex = index;
-        openModal(img.src, img.alt);
-      });
-    });
-
-    function openModal(src, alt) {
-      modal.classList.add('active');
-      modalImg.src = src;
-      modalImg.alt = alt;
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-    }
-
-    function closeModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }
-
-    function changeImage(direction) {
-      currentImageIndex += direction;
-
-      // Loop around if at start or end
-      if (currentImageIndex >= images.length) {
-        currentImageIndex = 0;
-      } else if (currentImageIndex < 0) {
-        currentImageIndex = images.length - 1;
-      }
-
-      modalImg.src = images[currentImageIndex].src;
-      modalImg.alt = images[currentImageIndex].alt;
-    }
-
-    // Close modal when clicking outside the image
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-      }
-      // Navigate with arrow keys
-      if (modal.classList.contains('active')) {
-        if (e.key === 'ArrowLeft') {
-          changeImage(-1);
-        } else if (e.key === 'ArrowRight') {
-          changeImage(1);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
