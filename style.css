@@ -139,6 +139,104 @@
       font-size: 0.95rem;
       color: var(--muted);
     }
+
+    /* Image Preview Styles */
+    .ui-preview-grid img {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ui-preview-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      animation: zoomIn 0.3s ease;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      z-index: 1001;
+    }
+    .modal-close:hover {
+      color: var(--brand);
+    }
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 20px;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .modal-nav:hover {
+      color: var(--brand);
+    }
+    .modal-prev {
+      left: 20px;
+    }
+    .modal-next {
+      right: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); }
+      to { transform: scale(1); }
+    }
+
+    /* Contact Section Improvements */
+    #contact p {
+      margin: 0.8rem 0;
+      font-size: 1.05rem;
+    }
+    #contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(34, 197, 94, 0.1);
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    #contact a:hover {
+      background: rgba(34, 197, 94, 0.2);
+      transform: translateX(4px);
+      text-decoration: none;
+    }
+
     @media (max-width: 720px) {
       header,
       main {
@@ -157,5 +255,20 @@
       }
       body {
         padding: 2.5rem 0.85rem;
+      }
+      .modal-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+      }
+      .modal-nav {
+        font-size: 35px;
+        padding: 10px;
+      }
+      .modal-prev {
+        left: 10px;
+      }
+      .modal-next {
+        right: 10px;
       }
     }
