@@ -18,7 +18,7 @@
       <div class="meta">
         <span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.75a9.25 9.25 0 1 0 0 18.5 9.25 9.25 0 0 0 0-18.5Zm0 1.5a7.75 7.75 0 0 1 1.75 15.3V13.5h3a.75.75 0 0 0 0-1.5h-3V9a.75.75 0 0 0-1.5 0v3h-3a.75.75 0 0 0 0 1.5h3v5.05A7.75 7.75 0 1 1 12 3.25Z"/></svg>
-          Last updated <time datetime="2025-09-25">25 September 2025</time>
+          Last updated <time datetime="2026-07-22">22 July 2026</time>
         </span>
         <span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9c0 3.86 2.43 7.19 5.83 8.42.43.12.89-.04 1.12-.43l1.65-2.75a.75.75 0 0 0-.33-1.05 3.5 3.5 0 1 1 3.63 0 .75.75 0 0 0-.33 1.05l1.65 2.75c.23.39.69.55 1.12.43A9.01 9.01 0 0 0 12 3Z"/></svg>
@@ -56,9 +56,9 @@
             <h3>Location (precise or approximate)</h3>
             <ul>
               <li><strong>Purpose:</strong> show maps, compute routes, and enable real-time navigation from/to markets and nearby POIs.</li>
-              <li><strong>Collection:</strong> through OS location services when you grant permission.</li>
-              <li><strong>Processing & Storage:</strong> used on device and in live requests to routing/map providers; we do not persist your real-time location on our servers.</li>
-              <li><strong>Sharing:</strong> not sold; may be transmitted to processors strictly to deliver features (e.g., map tiles or routing APIs).</li>
+              <li><strong>Collection:</strong> through OS location services (via Google Play services location) when you grant permission.</li>
+              <li><strong>Processing & Storage:</strong> used on device and in live requests to our map/navigation provider, <strong>Mapbox</strong>; we do not persist your real-time location on our own servers.</li>
+              <li><strong>Sharing:</strong> not sold; your location is transmitted to Mapbox strictly to render maps and compute routes, under <a href="https://www.mapbox.com/legal/privacy" target="_blank" rel="noopener">Mapbox's own privacy policy</a>.</li>
               <li><strong>Control:</strong> you can allow, limit to "approximate", or revoke location in device Settings. Simulation mode works without location.</li>
             </ul>
             <div style="margin-top: 1.5rem;">
@@ -81,9 +81,19 @@
             <h3>Diagnostics and Crash Logs</h3>
             <ul>
               <li><strong>Purpose:</strong> improve stability and performance.</li>
-              <li><strong>Collection:</strong> when crashes or errors occur; may include device model, OS version, app version, and stack traces.</li>
-              <li><strong>Provider:</strong> if enabled, we use trusted third-party crash reporting/analytics (e.g., Firebase Crashlytics) under their terms.</li>
-              <li><strong>Retention:</strong> kept only as long as reasonably necessary for debugging and quality, then deleted or anonymized.</li>
+              <li><strong>Collection:</strong> we do not use any third-party crash reporting or analytics SDK (e.g. Firebase Crashlytics) in the app. Crash and ANR (App Not Responding) reports may still be collected automatically by Google Play as part of standard Android Vitals for all apps distributed on the Play Store.</li>
+              <li><strong>Provider:</strong> Google Play (Android Vitals), governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. We do not add our own crash reporting service.</li>
+              <li><strong>Retention:</strong> handled per Google Play's standard retention for Android Vitals data; if we add our own diagnostics tooling in the future, this policy will be updated first.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Locally Stored Data (On-Device Only)</h3>
+            <ul>
+              <li><strong>Purpose:</strong> let you save favorite destinations and speed up repeat visits to market pages.</li>
+              <li><strong>What's stored:</strong> your saved/favorited tourism destinations, and a temporary cache of market (pasar) listings and photos.</li>
+              <li><strong>Storage:</strong> kept only in a local database on your device; never uploaded to our servers or any third party.</li>
+              <li><strong>Control:</strong> remove individual favorites in-app, or clear all local data via <em>Settings &gt; Apps &gt; JelajahDW &gt; Storage &gt; Clear Data</em>, or by uninstalling the app.</li>
             </ul>
           </article>
         </div>
@@ -104,14 +114,15 @@
 
       <section id="sharing">
         <h2>Sharing</h2>
-        <p>We do not sell personal data. We may share limited data with service providers strictly to operate the app (e.g., maps, routing, crash reporting). These providers are bound by agreements and process data on our behalf.</p>
+        <p>We do not sell personal data. We share limited data with Mapbox (maps and routing) and Google Play services location (device location access), strictly to operate app features. We do not use our own crash reporting or analytics SDK; Google Play may separately collect crash/ANR data as part of standard Android Vitals.</p>
       </section>
 
       <section id="retention">
         <h2>Retention</h2>
         <ul>
-          <li><strong>Real-time location:</strong> not stored on our servers; used transiently for navigation requests.</li>
-          <li><strong>Crash/diagnostics:</strong> retained for a limited period necessary to resolve issues, then deleted or aggregated.</li>
+          <li><strong>Real-time location:</strong> not stored on our servers; used transiently for navigation requests to Mapbox.</li>
+          <li><strong>Locally stored data (favorites, market cache):</strong> stays on your device until you clear it or uninstall the app.</li>
+          <li><strong>Crash/ANR diagnostics:</strong> collected and retained by Google Play under its own Android Vitals policy, not by us.</li>
         </ul>
       </section>
 
@@ -139,7 +150,7 @@
 
       <section id="transfers">
         <h2>International Transfers</h2>
-        <p>If we use third-party processors (e.g., crash reporting), your data may be processed in other countries with appropriate safeguards.</p>
+        <p>Our third-party processors (Mapbox, Google Play services) may process data in other countries under their own safeguards and privacy policies.</p>
       </section>
 
       <section id="contact">
